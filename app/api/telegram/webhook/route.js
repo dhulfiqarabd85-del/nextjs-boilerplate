@@ -8,6 +8,7 @@ export async function POST(req) {
   if (secret !== process.env.TELEGRAM_WEBHOOK_SECRET) {
     return new Response("Unauthorized", { status: 401 });
   }
+
   const update = await req.json();
   const chatId =
     update?.message?.chat?.id ||
